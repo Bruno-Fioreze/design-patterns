@@ -6,6 +6,9 @@ class AppSettings:
             cls._instance = super().__new__(cls, *args, **kwargs)
         return cls._instance
 
+    #def __init__(self):
+    #se possuir atribuição a propriedades dentro do init, corre o risco dela ser sobrescrita.
+
 if __name__ == "__main__":
     as1 = AppSettings()
     as2 = AppSettings()
