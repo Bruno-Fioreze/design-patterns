@@ -81,10 +81,18 @@ class UserDirector:
         self._builder.add_age(age)
         return self._builder.result
 
+    def with_address(self, firstname, lastname, address):
+        self._builder.add_first_name(firstname)
+        self._builder.add_last_name(lastname)
+        self._builder.add_address(address)
+        return self._builder.result
 
 if __name__ == "__main__":
     user_builder = UserBuilder()
     user_diretor = UserDirector(user_builder)
 
-    user = user_diretor.with_age("teste", "bruno", 25)
-    print(user)
+    user_age = user_diretor.with_age("teste", "bruno", 25)
+    print(user_age)
+
+    user_address = user_diretor.with_address("teste", "bruno", "Av. teste")
+    print(user_address)
