@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import List
+from copy import deepcopy
 
 
 
@@ -26,9 +27,17 @@ class Person(StringReprMixin):
     def add_address(self, address: Address) -> None:
         self.addresses.append(address)
 
+    def clone(self) -> Person:
+        return deepcopy(self) 
 
 if __name__ == "__main__":
     bruno = Person("Bruno", "Fioreze")
     bruno_endereco = Address("Av. teste", "250A")
     bruno.add_address(bruno_endereco)
+
+    #O propósito desse pattern é reutilizar os dados. Como Foi feito abaixo.
+    esposa_bruno = bruno.clone() 
+    esposa_bruno.firstname = "lara"
+
     print(bruno)
+    print(esposa_bruno)
