@@ -46,7 +46,7 @@ class WeatherStation(IObservable):
 
     def remove_observer(self, observer: IObserver) -> None: 
         if observer in self._observers:
-            self._observers.remove(observer)
+            self._observers.remove(observer) 
 
     def notify_observers(self) -> None:
         for observer in self._observers:
